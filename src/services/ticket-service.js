@@ -1,17 +1,22 @@
 const { StatusCodes } = require("http-status-codes");
 const { TicketRepository } = require("../repositories");
-const { EmailConfig } = require("../config");
+const { EmailConfig, ServerConfig } = require("../config");
 const AppError = require("../utils/errors/app-error");
 
 const ticketRepository = new TicketRepository();
 
 async function sendEmail(data) {
   try {
-    const response = await EmailConfig.transporter.sendEmail({
-      from: data.from,
+    const response = await EmailConfig.transporter.sendMail({
+      from: ServerConfig.GMAIL,
+      to: data.to,
       subject: data.subject,
       text: data.text,
     });
+
+    console.log(data);
+
+    createTicket(data);
 
     return response;
   } catch (error) {

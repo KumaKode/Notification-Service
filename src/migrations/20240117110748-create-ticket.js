@@ -9,15 +9,15 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
+      to: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       subject: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      content: {
-        type: Sequelize.STRING,
-        allowNull: false,
-      },
-      recepientEmail: {
+      text: {
         type: Sequelize.STRING,
         allowNull: false,
       },

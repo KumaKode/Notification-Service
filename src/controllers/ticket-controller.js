@@ -5,9 +5,9 @@ const { SuccessResponse, ErrorResponse } = require("../utils/common");
 async function createTicket(req, res) {
   try {
     const ticket = await TicketService.createTicket({
+      to: req.body.to,
       subject: req.body.subject,
-      content: req.body.content,
-      recepientEmail: req.body.recepientEmail,
+      text: req.body.content,
     });
     SuccessResponse.data = ticket;
     return res.status(StatusCodes.CREATED).json(SuccessResponse);
