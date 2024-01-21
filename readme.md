@@ -1,4 +1,8 @@
-This is a base node js project template, which anyone can use as it has been prepared, by keeping some of the most important code principles and project management recommendations. Feel free to change anything.
+# Notification Service
+
+Welcome to the Notification Service repository! This service is responsible for sending notifications, particularly email notifications, in the context of the Airline Management System.
+
+## Getting Started
 
 `src` -> Inside the src folder all the actual source code regarding the project will reside, this will not include any kind of tests. (You might want to make separate tests folder)
 
@@ -40,6 +44,12 @@ npm install
     npx sequelize init
   ```
 - By executing the above command you will get migrations and seeders folder along with a config.json inside the config folder.
+- Setup tables by seeing the `models` folder and run the following command:
+
+```
+npx sequelize model:generate --name tableName --attributes attributeName:attributeType,attributeName:attributeType
+```
+
 - If you're setting up your development environment, then write the username of your db, password of your db and in dialect mention whatever db you are using for ex: mysql, mariadb etc
 - If you're setting up test or prod environment, make sure you also replace the host with the hosted db url.
 
