@@ -1,11 +1,16 @@
 const amqplib = require("amqplib");
+const isDocker = require("./is-docker");
 const { TicketService } = require("../services");
 
 let connection, channel;
 
+const connectionString = isDocker()
+  ? "amqp://rabbitmq:5672"
+  : "amqp://localhost";
+
 async function connectQueue() {
   try {
-    connection = await amqplib.connect("amqp://localhost");
+    connection = await amqplib.connect(connectionString);
     channel = await connection.createChannel();
 
     await channel.assertQueue("notification_queue");

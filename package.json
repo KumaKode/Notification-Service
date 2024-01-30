@@ -4,7 +4,7 @@
   "description": "A basic node project taught and created by Sir Sanket to teach us MVC and ORM Structure",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon ./src"
+    "dev": "nodemon -L src/index.js"
   },
   "author": "Kuma_Kode",
   "license": "ISC",
